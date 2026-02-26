@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─── */
+:root {
+  --bg-primary:     #0b1629;
+  --bg-secondary:   #0d1b2e;
+  --bg-card:        #0f2340;
+  --text-primary:   #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+  --border-color:   rgba(30, 58, 94, 0.5);
+  --nav-bg:         rgba(255,255,255,0.85);
+  --nav-text:       #1e293b;
+  --nav-hover:      #2563eb;
+  --nav-shadow:     0 4px 24px rgba(0,0,0,0.15);
+}
+
+/* ─── Light theme overrides ─── */
+html.light {
+  --bg-primary:     #f0f4f8;
+  --bg-secondary:   #e2e8f0;
+  --bg-card:        #ffffff;
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+  --border-color:   rgba(148,163,184,0.4);
+  --nav-bg:         rgba(255,255,255,0.97);
+  --nav-text:       #0f172a;
+  --nav-hover:      #2563eb;
+  --nav-shadow:     0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* ─── Base ─── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ─── Theme-aware utility classes ─── */
+.theme-bg-primary   { background-color: var(--bg-primary);   transition: background-color 0.4s ease; }
+.theme-bg-secondary { background-color: var(--bg-secondary); transition: background-color 0.4s ease; }
+.theme-bg-card      { background-color: var(--bg-card);      transition: background-color 0.4s ease; }
+.theme-text         { color: var(--text-primary);   transition: color 0.4s ease; }
+.theme-text-muted   { color: var(--text-secondary); transition: color 0.4s ease; }
+.theme-border       { border-color: var(--border-color); transition: border-color 0.4s ease; }
+
+/* light mode: tint dark navy sections to light greys */
+html.light .bg-\[#0b1629\]  { background-color: #f0f4f8 !important; }
+html.light .bg-\[#0d1b2e\]  { background-color: #e8eef5 !important; }
+html.light .bg-\[#0f2340\]  { background-color: #ffffff !important; }
+html.light .bg-\[#080f1e\]  { background-color: #f8fafc !important; }
+html.light .bg-\[#060d1a\]  { background-color: #f0f4f8 !important; }
+html.light .bg-\[#12243e\]  { background-color: #f8fafc !important; }
+html.light .bg-\[#0f1e35\]  { background-color: #ffffff !important; }
+html.light .bg-\[#080f1e\]  { background-color: #f8fafc !important; }
+html.light .bg-\[#0d2040\]  { background-color: #e8eef5 !important; }
+
+/* light: text colours */
+html.light .text-white  { color: #0f172a !important; }
+html.light .text-slate-300 { color: #475569 !important; }
+html.light .text-slate-400 { color: #64748b !important; }
+html.light .text-slate-500 { color: #94a3b8 !important; }
+
+/* light: card borders */
+html.light .border-blue-900\/50,
+html.light .border-blue-900\/40,
+html.light .border-blue-900\/30 { border-color: rgba(148,163,184,0.35) !important; }
+
+/* light: keep cyan accents as-is */
+html.light .text-cyan-400 { color: #0891b2 !important; }
+html.light .bg-cyan-500   { background-color: #0891b2 !important; }
+
+/* light: card backgrounds with opacity modifier */
+html.light .bg-\[#0f2340\]\/80 { background-color: rgba(255,255,255,0.95) !important; }
+html.light .bg-\[#0f2340\]\/60 { background-color: rgba(255,255,255,0.85) !important; }
+html.light .bg-\[#0f2340\]\/50 { background-color: rgba(255,255,255,0.80) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 2px; }
+html.light ::-webkit-scrollbar-thumb { background: #94a3b8; }
+
+/* Selection */
+::selection { background: rgba(34,211,238,0.2); color: #22d3ee; }
+
+/* Transitions */
+a, button { transition: all 0.2s ease; }
+input:focus, textarea:focus { outline: none; }
